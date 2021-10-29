@@ -44,7 +44,7 @@ React.useEffect(() => {
       <section className="gallery">
         <ul className="elements">
           {
-            cards.map((card) => <Card key={card._id} card={card}/>)
+            cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick}/>)
           }
         </ul>
       </section>

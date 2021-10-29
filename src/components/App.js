@@ -10,6 +10,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState('');
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
@@ -27,6 +28,11 @@ function App() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
+    setSelectedCard('');
+  }
+
+  function onCardClick(card) {
+    setSelectedCard(card)
   }
 
   return (
@@ -38,6 +44,7 @@ function App() {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
+        onCardClick={onCardClick}
       />
 
       <Footer/>
@@ -68,7 +75,10 @@ function App() {
         <span className="form__input-error link-input-error"></span>
       </PopupWithForm>
 
-      <ImagePopup/>
+      <ImagePopup
+        card={selectedCard}
+        onClose={closeAllPopups}
+      />
 
       <PopupWithForm
         name="del"
