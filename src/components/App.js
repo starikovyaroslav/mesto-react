@@ -77,18 +77,6 @@ function App() {
         onClose={closeAllPopups}
       />
 
-      {/* <div className="pop-up popup-avatar">
-        <div className="pop-up__container">
-          <form className="pop-up__form form" name="update-avatar" noValidate>
-            <h2 className="pop-up__title pop-up__title_avatar">Обновить аватар</h2>
-            <input type="url" id="avatar-input" className="pop-up__input pop-up__input_place_avatar form__input" name="avatar" placeholder="Ссылка на аватар" required/>
-            <span className="form__input-error avatar-input-error"></span>
-            <button type="submit" className="pop-up__submit-button form__submit">Сохранить</button>
-          </form>
-          <button type="button" className="pop-up__close-button pop-up__close-button_avatar"></button>
-        </div>
-      </div> */}
-
       <PopupWithForm
         name="avatar"
         title="Обновить аватар"
@@ -100,23 +88,7 @@ function App() {
         <span className="form__input-error avatar-input-error"></span>
       </PopupWithForm>
 
-      <template id="element-template">
-        <li className="element">
-          <button type="button" className="element__delete-button"></button>
-          <img src="#" alt="#" className="element__image"/>
-          <div className="element__container">
-            <h2 className="element__title"></h2>
-            <div className="element__like-wrapper">
-              <button type="button" className="element__like-button"></button>
-              <span className="element__like-count">0</span>
-            </div>
-          </div>
-        </li>
-      </template>
-
     </div>
-
-
   );
 }
 
