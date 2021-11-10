@@ -18,14 +18,22 @@ function Card(props) {
     props.onCardClick(props.card)
   }
 
+  function handleLikeClick() {
+    props.onCardLike(props.card)
+  }
+
+  function handleDeleteClick() {
+    props.onCardDelete(props.card)
+  }
+
   return (
     <li className="element">
-      <button type="button" className="element__delete-button"></button>
+      <button type="button" className={cardDeleteButtonClassName} onClick={handleDeleteClick}></button>
       <img src={props.card.link} alt={props.card.name} className="element__image" onClick={handleCardClick}/>
       <div className="element__container">
         <h2 className="element__title">{props.card.name}</h2>
         <div className="element__like-wrapper">
-          <button type="button" className="element__like-button"></button>
+          <button type="button" className={cardLikeButtonClassName} onClick={handleLikeClick}></button>
           <span className="element__like-count">{props.card.likes.length}</span>
         </div>
       </div>
