@@ -30,43 +30,41 @@ function EditProfilePopup(props) {
   }
 
   return (
-    <>
-      <PopupWithForm
-        name="edit"
-        title="Редактировать профиль"
-        button="Сохранить"
-        isOpen={props.isOpen}
-        onClose={props.onClose}
-        onSubmit={handleSubmit}
-      >
-        <input
-          type="text"
-          id="profile-name-input"
-          className="pop-up__input pop-up__input_place_name form__input"
-          placeholder="Имя"
-          name="name"
-          minLength="2"
-          maxLength="40"
-          value={name}
-          required
-          onChange={handleName}
-        />
-        <span className="form__input-error profile-name-input-error"></span>
-        <input
-          type="text"
-          id="about-input"
-          className="pop-up__input pop-up__input_place_about form__input"
-          placeholder="О себе"
-          name="about"
-          minLength="2"
-          maxLength="200"
-          value={description}
-          required
-          onChange={handleDescription}
-        />
-        <span className="form__input-error about-input-error"></span>
-      </PopupWithForm>
-    </>
+    <PopupWithForm
+      name="edit"
+      title="Редактировать профиль"
+      button="Сохранить"
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      onSubmit={handleSubmit}
+    >
+      <input
+        type="text"
+        id="profile-name-input"
+        className="pop-up__input pop-up__input_place_name form__input"
+        placeholder="Имя"
+        name="name"
+        minLength="2"
+        maxLength="40"
+        value={name}
+        required
+        onChange={handleName}
+      />
+      <span className="form__input-error profile-name-input-error"></span>
+      <input
+        type="text"
+        id="about-input"
+        className="pop-up__input pop-up__input_place_about form__input"
+        placeholder="О себе"
+        name="about"
+        minLength="2"
+        maxLength="200"
+        value={description}
+        required
+        onChange={handleDescription}
+      />
+      <span className="form__input-error about-input-error"></span>
+    </PopupWithForm>
   )
 }
 

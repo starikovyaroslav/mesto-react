@@ -1,35 +1,11 @@
 import React from 'react';
-import api from '../utils/api';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Main(props) {
 
-const [cards, setCards] = React.useState([]);
-const currentUser = React.useContext(CurrentUserContext)
 
-React.useEffect(() => {
-  api.getInitialCards()
-    .then((res) => setCards(res))
-    .catch((err) => console.log(err));
-}, [])
-
-function handleCardLike(card) {
-  const isLiked = card.likes.some(i => i._id === currentUser._id);
-  api.changeLikeCardStatus(card._id, !isLiked)
-    .then((newCard) => {
-      setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    })
-    .catch((err) => console.log(err));
-}
-
-function handleCardDelete(card) {
-  api.deleteCard(card._id)
-    .then(() => {
-      setCards(cards.filter((state) => state !== card))
-    })
-    .catch((err) => console.log(err))
-}
+  const currentUser = React.useContext(CurrentUserContext)
 
   return (
     <main className="content">
@@ -51,12 +27,12 @@ function handleCardDelete(card) {
       <section className="gallery">
         <ul className="elements">
           {
-            cards.map((card) => <Card
+            props.cards.map((card) => <Card
             key={card._id}
             card={card}
             onCardClick={props.onCardClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
+            onCardLike={props.handleCardLike}
+            onCardDelete={props.handleCardDelete}
             />)
           }
         </ul>
