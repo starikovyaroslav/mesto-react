@@ -27,14 +27,16 @@ function Main(props) {
       <section className="gallery">
         <ul className="elements">
           {
-            props.cards.map((card) => <Card
-            key={card._id}
-            card={card}
-            onCardClick={props.onCardClick}
-            onCardLike={props.handleCardLike}
-            onCardDelete={props.handleCardDelete}
-            />)
-          }
+            props.cards.map((card) => (
+            <Card
+              key={card._id}
+              card={card}
+              onCardClick={props.onCardClick}
+              onCardLike={props.handleCardLike}
+              onCardDelete={props.handleCardDelete}
+            />
+          )
+          )}
         </ul>
       </section>
     </main>

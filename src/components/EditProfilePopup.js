@@ -11,7 +11,7 @@ function EditProfilePopup(props) {
   React.useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, props.isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -46,7 +46,7 @@ function EditProfilePopup(props) {
         name="name"
         minLength="2"
         maxLength="40"
-        value={name}
+        value={name || ''}
         required
         onChange={handleName}
       />
@@ -59,7 +59,7 @@ function EditProfilePopup(props) {
         name="about"
         minLength="2"
         maxLength="200"
-        value={description}
+        value={description || ''}
         required
         onChange={handleDescription}
       />

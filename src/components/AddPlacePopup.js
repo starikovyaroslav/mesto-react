@@ -1,5 +1,6 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function AddPlacePopup(props) {
   const [name, setName] = React.useState('')
@@ -40,6 +41,7 @@ function AddPlacePopup(props) {
         maxLength="30"
         required
         onChange={handleName}
+        value={name}
       />
       <span className="form__input-error place-name-input-error"></span>
       <input
@@ -50,6 +52,7 @@ function AddPlacePopup(props) {
         name="link"
         required
         onChange={handleUrl}
+        value={url}
       />
       <span className="form__input-error link-input-error"></span>
     </PopupWithForm>
